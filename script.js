@@ -36,10 +36,18 @@ deleteButton.addEventListener('click', () => {
   taskList.innerHTML = '';
 });
 // Requisito 11.
+// Referência: Colega @SrTonn pelo uso do FOR EACH.
 const removeBotton = document.querySelector('#remover-finalizados');
 removeBotton.addEventListener('click', () => {
   const completedList = document.querySelectorAll('.completed');
   completedList.forEach((elemento) => {
     elemento.remove();
   });
+});
+// Requisito 14.
+const removeSelecButton = document.querySelector('#remover-selecionado');
+console.log(removeSelecButton);
+removeSelecButton.addEventListener('click', () => {
+  const itenSelected = document.querySelector('.selected');
+  itenSelected.remove();
 });
