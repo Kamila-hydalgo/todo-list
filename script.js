@@ -35,3 +35,11 @@ const deleteButton = document.querySelector('#apaga-tudo');
 deleteButton.addEventListener('click', () => {
   taskList.innerHTML = '';
 });
+// Requisito 11.
+const removeBotton = document.querySelector('#remover-finalizados');
+removeBotton.addEventListener('click', () => {
+  const completedList = document.querySelectorAll('.completed');
+  completedList.forEach((elemento) => {
+    elemento.remove();
+  });
+});
