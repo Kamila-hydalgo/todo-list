@@ -1,14 +1,16 @@
 // Requisito 5 e 6.
 // Referência: projeto criado na monitoria do Thalles.
+const taskList = document.querySelector('#lista-tarefas');
+console.log(taskList);
 const addButtom = document.querySelector('#criar-tarefa');
-addButtom.addEventListener('click', function () {
+addButtom.addEventListener('click', () => {
   const input = document.querySelector('#texto-tarefa');
   const inputValue = input.value;
-  const taskList = document.querySelector('#lista-tarefas');
   const taskName = document.createElement('li');
   taskName.innerText = inputValue;
-  taskName.addEventListener('click', addRemove)
-  taskName.addEventListener('dblclick', riskItem)
+  input.focus(); // para o cursor voltar sempre para a caixa do input
+  taskName.addEventListener('click', addRemove);
+  taskName.addEventListener('dblclick', riskItem);
   taskList.appendChild(taskName);
   input.value = '';
 });
@@ -23,7 +25,13 @@ function addRemove(event) {
   taskName.classList.add('selected');
 }
 // Requisito 9.
+
 function riskItem(event) {
   const taskName = event.target;
   taskName.classList.toggle('completed');
 }
+// Requisito 10.
+const deleteButton = document.querySelector('#apaga-tudo');
+deleteButton.addEventListener('click', () => {
+  taskList.innerHTML = '';
+});
