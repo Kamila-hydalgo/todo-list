@@ -1,7 +1,7 @@
 // Requisito 5 e 6.
 // Referência: projeto criado na monitoria do Thalles.
+// Referência do FOCUS ao colega @SrTonn.
 const taskList = document.querySelector('#lista-tarefas');
-console.log(taskList);
 const addButtom = document.querySelector('#criar-tarefa');
 addButtom.addEventListener('click', () => {
   const input = document.querySelector('#texto-tarefa');
@@ -25,7 +25,7 @@ function addRemove(event) {
   taskName.classList.add('selected');
 }
 // Requisito 9.
-
+// Referência do TOGGLE na Monitoria do Thalles Carneiro. https://www.w3schools.com/howto/howto_js_toggle_class.asp
 function riskItem(event) {
   const taskName = event.target;
   taskName.classList.toggle('completed');
@@ -36,7 +36,8 @@ deleteButton.addEventListener('click', () => {
   taskList.innerHTML = '';
 });
 // Requisito 11.
-// Referência: Colega @SrTonn pelo uso do FOR EACH.
+// Referência: Colega @SrTonn pelo entendimento do FOR EACH.
+// Referência REMOVE: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
 const removeBotton = document.querySelector('#remover-finalizados');
 removeBotton.addEventListener('click', () => {
   const completedList = document.querySelectorAll('.completed');
@@ -44,9 +45,40 @@ removeBotton.addEventListener('click', () => {
     elemento.remove();
   });
 });
+// Requisito 12.
+// const save = document.querySelector('#salvar-tarefas');
+// const taskName = document.createElement('li');
+// const input = document.querySelector('#texto-tarefa');
+// const inputValue = input.value;
+// taskName.innerText = inputValue;
+// const task = localStorage.getItem('task');
+// inputValue.innerHTML = task;
+
+// Requisito 13
+// Referência do INSERT BEFORE: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+const upButton = document.querySelector('#mover-cima');
+const downButton = document.querySelector('#mover-baixo');
+
+upButton.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  if (!taskSelected) return;
+  const father = taskSelected.parentNode;
+  if (taskSelected !== taskList.children[0]) {
+    father.insertBefore(taskSelected, taskSelected.previousElementSibling);
+  }
+});
+
+downButton.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  if (!taskSelected) return;
+  const father = taskSelected.parentNode;
+  if (taskSelected !== taskList.lastChild) {
+    father.insertBefore(taskSelected.nextElementSibling, taskSelected);
+  }
+});
 // Requisito 14.
+// Referência REMOVE: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
 const removeSelecButton = document.querySelector('#remover-selecionado');
-console.log(removeSelecButton);
 removeSelecButton.addEventListener('click', () => {
   const itenSelected = document.querySelector('.selected');
   itenSelected.remove();
