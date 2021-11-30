@@ -46,18 +46,14 @@ removeBotton.addEventListener('click', () => {
   });
 });
 // Requisito 12.
-// Referência: agradecimento a Colega Tábata!
+// Referência: agradecimento a Colega Tábata pelo auxílio nesse requisito.
 const saveButton = document.querySelector('#salvar-tarefas');
-console.log(saveButton);
 saveButton.addEventListener('click', () => {
-  const input = document.querySelector('#lista-tarefas');
-  console.log(input);
-  const tasks = input.innerHTML;
+  const tasks = taskList.innerHTML;
   localStorage.setItem('tarefas', tasks);
 });
 function saveTasks() {
-  const input = document.querySelector('#lista-tarefas');
-  input.innerHTML = localStorage.getItem('tarefas');
+  taskList.innerHTML = localStorage.getItem('tarefas');
 }
 saveTasks();
 // Requisito 13
