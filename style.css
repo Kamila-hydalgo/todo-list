@@ -2,6 +2,14 @@
   background-color: gray;
 }
 
+#funcionamento {
+  font-style: italic;
+}
+
+#criar-tarefa {
+  margin-left: 50px;
+}
+
 .completed {
   text-decoration: line-through solid black;
 }
@@ -22,4 +30,17 @@ body {
   height: 28px;
   border-radius: 30px;
   border: none;
+  width: 300px;
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  border: solid white 5px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 120px;
+  margin-left: 200px;
+  width: 900px;
 }
