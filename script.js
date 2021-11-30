@@ -24,17 +24,20 @@ function addRemove(event) {
   }
   taskName.classList.add('selected');
 }
+
 // Requisito 9.
 // Referência do TOGGLE na Monitoria do Thalles Carneiro. https://www.w3schools.com/howto/howto_js_toggle_class.asp
 function riskItem(event) {
   const taskName = event.target;
   taskName.classList.toggle('completed');
 }
+
 // Requisito 10.
 const deleteButton = document.querySelector('#apaga-tudo');
 deleteButton.addEventListener('click', () => {
   taskList.innerHTML = '';
 });
+
 // Requisito 11.
 // Referência: Colega @SrTonn pelo entendimento do FOR EACH.
 // Referência REMOVE: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
@@ -45,8 +48,10 @@ removeBotton.addEventListener('click', () => {
     elemento.remove();
   });
 });
+
 // Requisito 12.
 // Referência: agradecimento a Colega Tábata pelo auxílio nesse requisito.
+// Foi adicionado os eventos de clique para após carregar a página, os itens continuem responsivos nos cliques.
 const saveButton = document.querySelector('#salvar-tarefas');
 saveButton.addEventListener('click', () => {
   const tasks = taskList.innerHTML;
@@ -54,8 +59,11 @@ saveButton.addEventListener('click', () => {
 });
 function saveTasks() {
   taskList.innerHTML = localStorage.getItem('tarefas');
+  taskList.addEventListener('click', addRemove);
+  taskList.addEventListener('click', riskItem);
 }
 saveTasks();
+
 // Requisito 13
 // Referência do INSERT BEFORE: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 // Referência do Guard Claude: https://pt.stackoverflow.com/questions/455667/o-que-%C3%A9-uma-guard-clause
@@ -79,6 +87,7 @@ downButton.addEventListener('click', () => {
     father.insertBefore(taskSelected.nextElementSibling, taskSelected);
   }
 });
+
 // Requisito 14.
 // Referência REMOVE: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
 const removeSelecButton = document.querySelector('#remover-selecionado');
