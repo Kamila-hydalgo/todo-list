@@ -46,16 +46,23 @@ removeBotton.addEventListener('click', () => {
   });
 });
 // Requisito 12.
-// const save = document.querySelector('#salvar-tarefas');
-// const taskName = document.createElement('li');
-// const input = document.querySelector('#texto-tarefa');
-// const inputValue = input.value;
-// taskName.innerText = inputValue;
-// const task = localStorage.getItem('task');
-// inputValue.innerHTML = task;
-
+// Referência: agradecimento a Colega Tábata!
+const saveButton = document.querySelector('#salvar-tarefas');
+console.log(saveButton);
+saveButton.addEventListener('click', () => {
+  const input = document.querySelector('#lista-tarefas');
+  console.log(input);
+  const tasks = input.innerHTML;
+  localStorage.setItem('tarefas', tasks);
+});
+function saveTasks() {
+  const input = document.querySelector('#lista-tarefas');
+  input.innerHTML = localStorage.getItem('tarefas');
+}
+saveTasks();
 // Requisito 13
 // Referência do INSERT BEFORE: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+// Referência do Guard Claude: https://pt.stackoverflow.com/questions/455667/o-que-%C3%A9-uma-guard-clause
 const upButton = document.querySelector('#mover-cima');
 const downButton = document.querySelector('#mover-baixo');
 
